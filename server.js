@@ -1,5 +1,5 @@
-const express = require('express');
-const mongoose = require('mongoose');
+// const express = require('express');
+// const mongoose = require('mongoose');
 const cors = require('cors');
 app.use(cors({
   origin: 'https://homely-hub-seven.vercel.app/', // Replace with your frontend Vercel domain
