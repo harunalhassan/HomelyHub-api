@@ -1,39 +1,45 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const propertyRoutes = require('./routes/propertyRoutes');
-const userRoutes = require('./routes/userRoutes');
-const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
+
+dotenv.config({ path: './config.env' });
+
 const app = express();
+const port = process.env.PORT || 3000;
+const DB_LOCAL = process.env.DATABASE_LOCAL;
+
+// Middleware
+app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(DB_LOCAL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((err) => {
-  console.error('Failed to connect to MongoDB', err);
+  useCreateIndex: true,
+})
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// Routes
+// Example route
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Hello, World!' });
 });
 
-// Enable CORS for all routes
-app.use(cors({
-  origin: 'https://homely-hub-seven.vercel.app', // Replace with your frontend Vercel domain
-  credentials: true,
-}));
+// Favicon
+app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'favicon.ico')));
+app.use('/favicon.png', express.static(path.join(__dirname, 'public', 'favicon.png')));
 
-app.use(express.json());
-app.use(cookieParser());
-
-// Use property routes
-app.use('/api/v1/rent/listing', propertyRoutes);
-
-// Use user routes
-app.use('/api/v1/rent/user', userRoutes);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
-module.exports = app;
+// Start server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
