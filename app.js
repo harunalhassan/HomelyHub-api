@@ -1,10 +1,3 @@
-const express = require('express');
-const cors = require('cors');
-app.use(cors({
-  origin: 'https://homely-hub-seven.vercel.app/', // Replace with your frontend Vercel domain
-  credentials: true,
-}));
-
 function _0x3022() {
   const _0xcad78 = [
     "154594qLXrVx",
