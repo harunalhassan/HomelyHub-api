@@ -66,7 +66,7 @@ app[_0x401e3c(0xc9)](express[_0x401e3c(0xcc)]()),
   app["use"](_0x401e3c(0xcf), propertyRoutes),
   app[_0x401e3c(0xc9)]("/api/v1/rent/user", userRoutes),
   (module["exports"] = app);
-  const express = require('express');
+
   const cors = require('cors');
   app.use(cors({
     origin: 'https://homely-hub-seven.vercel.app/', // Replace with your frontend Vercel domain
