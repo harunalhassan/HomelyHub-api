@@ -1,7 +1,5 @@
 const express = require('express');
-// const mongoose = require('mongoose');
-// app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use('/favicon.png', express.static(path.join(__dirname, 'public', 'favicon.png')));
+
 const _0x33db9b=_0x4485;
 function _0x6b7b(){const _0x243f9b=['connect','479315TNXfPW','13896dVUBVC','132290UQjxRc','854762lXjHgU','75036sUFDxk','config','105shePks','./app','618mQcNkz','396ULcCWZ','dotenv','log','mongoose','App\x20Running\x20on\x20port:\x20','108aasJlj','DATABASE_LOCAL','264CnATdQ','248GxdeAl','listen','90363kTSnfr'];_0x6b7b=function(){return _0x243f9b;};return _0x6b7b();}
 (function(_0x4b8036,_0x2a2c4e){const _0xce06d5=_0x4485,_0x282993=_0x4b8036();while(!![]){try{const _0xa23642=parseInt(_0xce06d5(0xab))/0x1+parseInt(_0xce06d5(0xae))/0x2+-parseInt(_0xce06d5(0xaf))/0x3*(parseInt(_0xce06d5(0xa4))/0x4)+parseInt(_0xce06d5(0xb1))/0x5*(-parseInt(_0xce06d5(0xb3))/0x6)+parseInt(_0xce06d5(0xa9))/0x7*(-parseInt(_0xce06d5(0xa7))/0x8)+-parseInt(_0xce06d5(0xb4))/0x9*(-parseInt(_0xce06d5(0xad))/0xa)+-parseInt(_0xce06d5(0xa6))/0xb*(parseInt(_0xce06d5(0xac))/0xc);if(_0xa23642===_0x2a2c4e)break;else _0x282993['push'](_0x282993['shift']());}catch(_0x59d7df){_0x282993['push'](_0x282993['shift']());}}}(_0x6b7b,0x5d952));
