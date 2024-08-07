@@ -13,6 +13,7 @@ const DB = process.env.DATABASE_LOCAL || process.env.DATABASE_PRODUCTION;
 app.use(cors({
   origin: 'https://homely-hub-seven.vercel.app', // Replace with your frontend Vercel domain
   credentials: true,
+  methods:["GET","POST","PUT","DELETE"],
 }));
 
 mongoose.connect(DB, {
