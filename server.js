@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 
 dotenv.config({ path: './config.env' });
@@ -8,6 +9,11 @@ dotenv.config({ path: './config.env' });
 const app = require('./app');
 
 const DB = process.env.DATABASE_LOCAL || process.env.DATABASE_PRODUCTION;
+
+app.use(cors({
+  origin: 'https://homely-hub-seven.vercel.app', // Replace with your frontend Vercel domain
+  credentials: true,
+}));
 
 mongoose.connect(DB, {
   useNewUrlParser: true,
