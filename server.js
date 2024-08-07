@@ -3,20 +3,18 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
-
 dotenv.config({ path: './config.env' });
 
 const app = require('./app');
 
 const DB = process.env.DATABASE_LOCAL || process.env.DATABASE_PRODUCTION;
-const corsConfig={
+
+const corsConfig = {
   origin: 'https://homely-hub-seven.vercel.app', // Replace with your frontend Vercel domain
   credentials: true,
-  methods:["GET","POST","PUT","DELETE"],
-
+  methods: ["GET", "POST", "PUT", "DELETE"],
 };
-app.options("",cors(corsConfig));
-
+app.options('*', cors(corsConfig));
 app.use(cors(corsConfig));
 
 mongoose.connect(DB, {
@@ -28,8 +26,7 @@ mongoose.connect(DB, {
   console.error('DB connection error:', err);
 });
 
-// Use the environment variable for the port, or default to 8000
-const port =8000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`App running on port: ${port}`);
